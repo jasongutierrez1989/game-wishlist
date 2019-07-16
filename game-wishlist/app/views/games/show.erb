@@ -1,0 +1,30 @@
+<div class="row">
+  <h1><%= @game.name %></h1>
+</div>
+
+<div class="row">
+  <div class="col">
+    <button onclick="window.location='/games'" class="btn btn-light">Back to Games</button>
+    <button onclick="window.location='/games/<%= @game.id %>/edit'" class="btn btn-light">Edit Game</button>
+  </div>
+  
+  <div class="col">
+    <form method="POST" action="/games/<%= @game.id %>" class="float-right">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" class="btn btn-danger" value="Delete Game">
+    </form>
+  </div>
+</div>
+
+<div class="row justify-content-md-left mt-3">
+  <h4>Names</h4>
+</div>
+<div class="row justify-content-md-left">
+  <div class="col-lg-8">
+    <ul class="list-group list-group-flush">
+      
+        <li class="list-group-item"><%= @game.name %></li>
+      
+    </ul>
+  </div>
+</div>

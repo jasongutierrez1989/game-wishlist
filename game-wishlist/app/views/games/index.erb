@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col">
+    <h1>Games</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <button onclick="window.location='/users/<%= @user.id %>'" class="btn btn-light">Home</button>
+    <button onclick="window.location='/games/new'" class="btn btn-light">New Game</button>
+    <button onclick="window.location='/users/logout'" class="btn btn-light">Log Out</button>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-6">
+    <ul class="list-group list-group-flush">
+      <% @user.games.all.sort { |a, b| a.name <=> b.name }.each do |game| %>
+        <a href="/games/<%= game.id %>">
+          <li class="list-group-item"><h3><%= game.name %></h3></li>
+        </a>
+      <% end %>
+    </ul>
+  </div>
+</div>
